@@ -26,7 +26,7 @@ export function Users() {
     }
   }, [firebaseDb])
   return (
-    <div className="mt-[15px]">
+    <div className="my-[15px] ">
       {users.map((user) => {
         return <User key={user.profileId} user={user} />
       })}

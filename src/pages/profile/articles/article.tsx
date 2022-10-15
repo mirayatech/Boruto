@@ -2,34 +2,20 @@
 
 import { Link } from 'react-router-dom'
 import { HiOutlineBookOpen } from 'react-icons/hi'
-import { getDateWithTimestamp, getTimestamp } from '../../../lib'
+import { ArticleType, getDateWithTimestamp, getTimestamp } from '../../../lib'
 import { Details } from '..'
 
 type ArticleProps = {
-  pin: string
-  uid: string
-  title: string
-  readMin: string
-  coverUrl: string
-  articleId: string
-  timestamp: {
-    seconds: number
-    nanoseconds: number
-  }
+  PIN: string
+  article: ArticleType
 }
 
-export default function Article({
-  pin,
-  timestamp,
-  articleId,
-  uid,
-  title,
-  readMin,
-  coverUrl,
-}: ArticleProps) {
+export default function Article({ PIN, article }: ArticleProps) {
+  const { coverUrl, title, articleId, authID, timestamp, readMin } = article
+
   return (
     <>
-      {uid === pin && (
+      {authID === PIN && (
         <div className="w-[390px] bg-white border border-border p-[15px] rounded-[8px] mt-[20px]  mx-auto ">
           <div>
             <div

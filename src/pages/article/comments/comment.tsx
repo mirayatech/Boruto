@@ -7,30 +7,22 @@ import { Link } from 'react-router-dom'
 import { DeleteComment } from '../../../components'
 import { useAuthContext } from '../../../context'
 import {
+  CommentType,
   firebaseDb,
   getDateWithTimestamp,
   getTimestamp,
   UserType,
 } from '../../../lib'
 
-type L = {
-  comment: string
-  commentId: string
-  commentUid: string
+type CommentProps = {
+  comment: CommentType
   articleId: string | undefined
-  timestamp: {
-    seconds: number
-    nanoseconds: number
-  }
 }
 
 export function Comment({
-  comment,
-  commentUid,
-  commentId,
   articleId,
-  timestamp,
-}: L) {
+  comment: { commentPIN, commentId, timestamp, comment },
+}: CommentProps) {
   const [openModal, setOpenModal] = useState(false)
   const [profile, setProfile] = useState<UserType[]>([])
   const { user } = useAuthContext()
@@ -60,7 +52,7 @@ export function Comment({
         commentId={commentId}
       />
       <div className="bg-white rounded-[8px] border border-border w-[800px] mx-auto mb-[15px] relative">
-        {commentUid === user?.uid && (
+        {commentPIN === user?.uid && (
           <button
             onClick={() => setOpenModal(true)}
             className="absolute bg-border text-[19px] py-[5px] px-[10px] rounded-[4px] top-[12px] right-[15px]"
@@ -69,10 +61,10 @@ export function Comment({
           </button>
         )}
 
-        {profile.map(({ profileId, avatarUrl, fullname, bio, pin }) => {
+        {profile.map(({ profileId, avatarUrl, fullname, bio, PIN }) => {
           return (
             <div key={profileId}>
-              {pin === commentUid && (
+              {PIN === commentPIN && (
                 <div className="flex items-center py-[20px] px-[30px] border-b border-border">
                   <img
                     src={avatarUrl}

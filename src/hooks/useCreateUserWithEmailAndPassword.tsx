@@ -29,7 +29,7 @@ export const useCreateUserWithEmailAndPassword = () => {
         age: '',
         bio: '',
         avatarUrl: '',
-        pin: user.user.uid,
+        PIN: user.user.uid,
       })
 
       const usernameRef = doc(firebaseDb, `usernames/${username}`)

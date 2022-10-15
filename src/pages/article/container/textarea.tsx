@@ -38,7 +38,7 @@ export function Textarea({ articleId }: T) {
     await setDoc(commentsCollectionReference, {
       comment: commentField,
       timestamp: serverTimestamp(),
-      commentUid: user?.uid,
+      commentPIN: user?.uid,
     })
     setStatus('success')
     toast.success('You successfully added a comment to this article')

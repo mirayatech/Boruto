@@ -2,8 +2,7 @@
 
 import { doc, DocumentReference, onSnapshot } from 'firebase/firestore'
 import { useEffect, useState } from 'react'
-import { FiEdit3 } from 'react-icons/fi'
-import { Link, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import { useAuthContext } from '../../context'
 import { firebaseDb, ParamsType, UserType } from '../../lib'
 import { Articles, Button, Followers } from './index'
@@ -86,19 +85,9 @@ export default function Profile() {
                 {profile.bio}
               </p>
             </div>
-            {profile.pin === user?.uid ? (
-              <Link
-                to={`/profiles/edit/${id}`}
-                aria-label="Edit your profile"
-                className="top-[30px] right-[30px] text-white bg-blue absolute flex py-[6px] px-[12px] text-base rounded-[30px] hover:bg-hoverFilled  transition ease-in-out duration-200"
-              >
-                <FiEdit3 className="self-center mr-[6px]" /> Edit
-              </Link>
-            ) : (
-              <Button profileId={id} />
-            )}
+            {profile.PIN === user?.uid ? '' : <Button profileId={id} />}
           </div>
-          <Articles pin={profile.pin} fullname={profile.fullname} />
+          <Articles PIN={profile.PIN} />
         </>
       )}
     </div>

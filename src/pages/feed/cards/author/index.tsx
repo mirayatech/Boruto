@@ -14,12 +14,12 @@ type AuthorProps = {
 }
 
 export function Author({
-  article: { timestamp, readMin, uid },
-  user: { pin, avatarUrl, profileId, fullname },
+  article: { timestamp, readMin, authID },
+  user: { PIN, avatarUrl, profileId, fullname },
 }: AuthorProps) {
   return (
     <>
-      {uid === pin && (
+      {authID === PIN && (
         <div className="flex items-center">
           <img src={avatarUrl} alt="" className="w-[55px] rounded-[50%]" />
           <div className="ml-[10px]">

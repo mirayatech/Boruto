@@ -10,13 +10,13 @@ import { useEffect, useState } from 'react'
 
 import { firebaseDb, ArticleType } from '../../../lib/'
 import Article from './article'
+
 type ArticlesProps = {
-  pin: string
-  fullname: string
+  PIN: string
 }
 
-export function Articles({ pin }: ArticlesProps) {
-  const [articles, setArticles] = useState<ArticleType[]>([])
+export function Articles({ PIN }: ArticlesProps) {
+  const [articles, setArticles] = useState<ArticleType[] | null>(null)
 
   const ArticlesCollectionReference = collection(
     firebaseDb,
@@ -39,22 +39,10 @@ export function Articles({ pin }: ArticlesProps) {
   }, [firebaseDb])
   return (
     <div className="grid grid-cols-2  mx-auto w-[815px] mb-[50px]">
-      {articles.map(
-        ({ articleId, uid, title, readMin, coverUrl, timestamp }) => {
-          return (
-            <Article
-              pin={pin}
-              uid={uid}
-              title={title}
-              key={articleId}
-              readMin={readMin}
-              coverUrl={coverUrl}
-              articleId={articleId}
-              timestamp={timestamp}
-            />
-          )
-        }
-      )}
+      {articles &&
+        articles.map((article) => {
+          return <Article article={article} key={article.articleId} PIN={PIN} />
+        })}
     </div>
   )
 }

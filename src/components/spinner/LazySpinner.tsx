@@ -6,7 +6,7 @@ import './style.css'
 export const LazySpinner = () => {
   return (
     <div role="alert" aria-label="loading" className="spinner">
-      <CgSpinner className="spin " />
+      <CgSpinner className="spin" />
     </div>
   )
 }

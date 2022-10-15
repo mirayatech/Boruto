@@ -38,7 +38,16 @@ input,
 textarea {
   outline: none;
 }
+.markdown-article * {
+  font-size: calc(18px);
+  line-height: 2;
+}
 
 .markdown {
   height: 500px;
+}
+
+.markdown ul,
+.markdown-article ul {
+  list-style: disc;
 }

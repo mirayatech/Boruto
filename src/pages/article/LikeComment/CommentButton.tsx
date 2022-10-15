@@ -6,7 +6,7 @@ import { LikeCommentProps } from '.'
 import { CommentType, firebaseDb } from '../../../lib'
 
 export function CommentButton({ articleId }: LikeCommentProps) {
-  const [comments, setComments] = useState<CommentType[]>([])
+  const [comments, setComments] = useState<CommentType[] | null>(null)
 
   const commentsCollectionReference = collection(
     firebaseDb,
@@ -24,8 +24,10 @@ export function CommentButton({ articleId }: LikeCommentProps) {
   return (
     <p className="text-[32px]  text-darkGrey  text-darkGrey mb-[50px] flex items-center">
       <IoChatbubblesOutline />
-      {comments.length >= 0 && (
-        <span className="text-[22px]  ml-[10px]">{comments.length}</span>
+      {comments && comments.length >= 0 && (
+        <span className="text-[22px]  ml-[10px]">
+          {comments && comments.length}
+        </span>
       )}
     </p>
   )

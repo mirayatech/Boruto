@@ -89,12 +89,12 @@ export default function Signin() {
         >
           Sign in
         </button>
-        <p className="text-center">
-          Do not have an account yet?{' '}
-          <Link className="text-blue" to="/signup">
+        <div className="flex justify-center ">
+          <p className="text-center mr-[5px]">Do not have an account yet?</p>
+          <Link className="text-blue hover:underline" to="/signup">
             Sign up.
           </Link>
-        </p>
+        </div>
       </form>
     </div>
   )

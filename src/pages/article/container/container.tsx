@@ -9,7 +9,7 @@ import { CommentType, firebaseDb } from '../../../lib'
 export function Container({ articleId }: T) {
   const { setPopup } = useInfoContext()
 
-  const [comments, setComments] = useState<CommentType[]>([])
+  const [comments, setComments] = useState<CommentType[] | null>(null)
 
   const commentsCollectionReference = collection(
     firebaseDb,
@@ -27,7 +27,9 @@ export function Container({ articleId }: T) {
   }, [])
   return (
     <div className="flex items-center justify-between mb-[5px] w-[800px] bg-white p-[30px] rounded-[8px] border border-border">
-      <p className="font-semibold text-[25px]">Comments ({comments?.length})</p>
+      <p className="font-semibold text-[25px]">
+        Comments ({comments && comments.length})
+      </p>
 
       <button
         onClick={() => setPopup(true)}

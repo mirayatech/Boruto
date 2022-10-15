@@ -41,7 +41,7 @@ export function User({
     [firebaseDb, profileId]
   )
   return (
-    <div className="relative flex  bg-white w-[650px] mx-auto border border-border mt-[15px] p-[30px] rounded-[8px] ">
+    <div className="relative flex  bg-white w-[650px] mx-auto border border-border mt-[15px]  p-[30px] rounded-[8px] ">
       <p
         className="absolute text-lightGrey top-[10px] right-[10px] text-[14px]"
         aria-label={`Member since: ${getDateWithTimestamp(
@@ -71,7 +71,7 @@ export function User({
           tabIndex={0}
           className="rounded-[3px] text-[14px] bg-border inline-block px-[8px] py-[2px]"
         >
-          <span className="font-semibold mr-[5px]">{followers?.length}</span>
+          <span className=" mr-[5px]">{followers?.length}</span>
           Followers
         </p>
 

@@ -11,8 +11,8 @@ import { useAuthContext } from '../../context'
 import { FiX } from 'react-icons/fi'
 
 type DeleteArticleProps = {
-  articleId: string | undefined
   openModal: boolean
+  articleId: string | undefined
   setOpenModal: Dispatch<SetStateAction<boolean>>
 }
 
@@ -21,9 +21,9 @@ export default function DeleteArticle({
   setOpenModal,
   openModal,
 }: DeleteArticleProps) {
+  const navigate = useNavigate()
   const { user } = useAuthContext()
   const { setStatus } = useLoadingStore()
-  const navigate = useNavigate()
 
   const deleteArticle = async () => {
     setStatus('loading')
@@ -48,7 +48,7 @@ export default function DeleteArticle({
         tabIndex={0}
         className="font-semibold text-[26px] text-center border-b border-border pb-[15px] p-[30px]"
       >
-        Are you sure?{' '}
+        Are you sure?
       </h1>
       <p
         id="alert-dialog-description"

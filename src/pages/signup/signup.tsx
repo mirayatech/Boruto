@@ -86,7 +86,7 @@ export default function Signp() {
   const checkUsername = useCallback(
     functionsDebounce(async (username: string) => {
       if (username.length >= 3) {
-        // setStatus('loading')
+        setStatus('loading')
 
         const usernameDocRef = doc(firebaseDb, `usernames/${username}`)
         const usernameDocSnapshot = await getDoc(usernameDocRef)
@@ -242,12 +242,12 @@ export default function Signp() {
         >
           Sign up
         </button>
-        <p className="text-center">
-          Already have an account?{' '}
-          <Link className="text-blue" to="/signin">
+        <div className="flex justify-center ">
+          <p className="text-center mr-[5px]">Already have an account?</p>
+          <Link className="text-blue hover:underline" to="/signin">
             Sign in.
           </Link>
-        </p>
+        </div>
       </form>
     </div>
   )

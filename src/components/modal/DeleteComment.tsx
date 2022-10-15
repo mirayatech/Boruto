@@ -1,10 +1,11 @@
 /* eslint-disable react/react-in-jsx-scope */
 
 import { deleteDoc, doc } from 'firebase/firestore'
-import toast from 'react-hot-toast'
 import { firebaseDb, useLoadingStore } from '../../lib'
 
 import Dialog from '@mui/material/Dialog'
+import toast from 'react-hot-toast'
+
 import { FiX } from 'react-icons/fi'
 
 type DeleteArticleProps = {
@@ -43,7 +44,7 @@ export function DeleteComment({
         tabIndex={0}
         className="font-semibold text-[26px] text-center border-b border-border pb-[15px] p-[30px]"
       >
-        Are you sure?{' '}
+        Are you sure?
       </h1>
       <p
         id="alert-dialog-description"

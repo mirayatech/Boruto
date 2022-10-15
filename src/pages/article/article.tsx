@@ -81,8 +81,8 @@ export default function Article() {
                       backgroundImage: `url(${article.coverUrl})`,
                     }}
                   />
-                  {article.uid === user?.uid && (
-                    <Buttons setOpenModal={setIsModalOpen} articleId={id} />
+                  {article.authID === user?.uid && (
+                    <Buttons setOpenModal={setIsModalOpen} />
                   )}
                 </div>
                 <h1
@@ -111,7 +111,10 @@ export default function Article() {
                     })}
                 </div>
 
-                <MarkdownPreview source={article.text} />
+                <MarkdownPreview
+                  source={article.text}
+                  className="markdown-article"
+                />
               </div>
 
               <LikeComment articleId={id} />

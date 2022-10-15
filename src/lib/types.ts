@@ -3,12 +3,12 @@ import { z } from 'zod'
 export type CommentType = {
   commentId: string
   comment: string
-  commentUid: string
+  commentPIN: string
   timestamp: { seconds: number; nanoseconds: number }
 }
 
 export type ArticleType = {
-  uid: string
+  authID: string
   text: string
   title: string
   subtitle: string
@@ -22,7 +22,7 @@ export type ArticleType = {
 }
 
 export type UserType = {
-  pin: string
+  PIN: string
   bio: string
   age: string
   fullname: string

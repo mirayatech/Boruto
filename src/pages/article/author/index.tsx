@@ -14,12 +14,12 @@ type AuthorProps = {
   user: UserType
 }
 export function Author({
-  article: { uid, readMin },
-  user: { pin, avatarUrl, profileId, fullname, createdAt },
+  article: { authID, readMin },
+  user: { PIN, avatarUrl, profileId, fullname, createdAt },
 }: AuthorProps) {
   return (
     <>
-      {uid === pin && (
+      {authID === PIN && (
         <>
           <img
             src={avatarUrl}

@@ -34,15 +34,12 @@ export function Comments({ articleId }: T) {
 
   return (
     <div>
-      {comments.map(({ comment, commentUid, commentId, timestamp }) => {
+      {comments.map((comment) => {
         return (
           <Comment
-            key={commentId}
             comment={comment}
-            timestamp={timestamp}
-            commentUid={commentUid}
+            key={comment.commentId}
             articleId={articleId}
-            commentId={commentId}
           />
         )
       })}

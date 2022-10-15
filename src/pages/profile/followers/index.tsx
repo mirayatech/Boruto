@@ -9,7 +9,7 @@ type FollowersProps = {
 }
 
 export function Followers({ profileId }: FollowersProps) {
-  const [followers, setFollowers] = useState<FollowType[]>([])
+  const [followers, setFollowers] = useState<FollowType[] | null>(null)
 
   const followersCollectionReference = collection(
     firebaseDb,
@@ -29,7 +29,7 @@ export function Followers({ profileId }: FollowersProps) {
       tabIndex={0}
       className="rounded-[3px] text-[14px] bg-border inline-block px-[8px] py-[2px]"
     >
-      <span className="font-semibold mr-[5px]">{followers.length}</span>
+      <span className=" mr-[5px]">{followers && followers.length}</span>
       Followers
     </p>
   )

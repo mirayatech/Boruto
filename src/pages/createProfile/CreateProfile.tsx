@@ -10,19 +10,15 @@ import { useFormState } from '../../hooks/'
 import { useNavigate } from 'react-router-dom'
 import { IoCameraOutline } from 'react-icons/io5'
 
-import {
-  firebaseDb,
-  firebaseAuth,
-  firebaseStorage,
-  useLoadingStore,
-} from '../../lib/'
+import { firebaseDb, firebaseStorage, useLoadingStore } from '../../lib/'
+import { useAuthContext } from '../../context'
 
 export default function CreateProfile() {
   // TODO: use label for triggering input file instead of button with ref.
   const filePickerRef = useRef<any>(null)
   const [selectedFile, setSelectedFile] = useState<any>(null)
   const [loading, setLoading] = useState(false)
-
+  const { user } = useAuthContext()
   const navigate = useNavigate()
   const { setStatus } = useLoadingStore()
 
@@ -42,25 +38,19 @@ export default function CreateProfile() {
 
     if (loading) return setLoading(true)
 
-    const imageReference = ref(
-      firebaseStorage,
-      `avatars/${firebaseAuth.currentUser?.uid}/image`
-    )
+    const imageReference = ref(firebaseStorage, `avatars/${user?.uid}/image`)
 
     await uploadString(imageReference, selectedFile, 'data_url').then(
       async () => {
         const downloadURL = await getDownloadURL(imageReference)
 
-        await updateDoc(
-          doc(firebaseDb, `users/${firebaseAuth.currentUser?.uid}`),
-          {
-            age: age,
-            bio: bio,
-            location: location,
-            fullname: name,
-            avatarUrl: downloadURL,
-          }
-        )
+        await updateDoc(doc(firebaseDb, `users/${user?.uid}`), {
+          age: age,
+          bio: bio,
+          location: location,
+          fullname: name,
+          avatarUrl: downloadURL,
+        })
       }
     )
 

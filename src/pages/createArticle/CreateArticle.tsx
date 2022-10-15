@@ -49,7 +49,7 @@ export default function CreateArticle() {
 
     const documentReference = await addDoc(collection(firebaseDb, 'articles'), {
       timestamp: serverTimestamp(),
-      id: user?.uid,
+      articleId: user?.uid,
     })
 
     const imageReference = ref(
@@ -67,7 +67,7 @@ export default function CreateArticle() {
           text: textField,
           coverUrl: downloadURL,
           readMin: minuteField,
-          uid: user?.uid,
+          authID: user?.uid,
         })
       }
     )
@@ -78,11 +78,11 @@ export default function CreateArticle() {
     toast.success('Successfully created a blog article.')
   }
 
-  const addImageToPost = (e: any) => {
+  const addImageToPost = (event: any) => {
     const reader = new FileReader()
 
-    if (e.target.files[0]) {
-      reader.readAsDataURL(e.target.files[0])
+    if (event.target.files[0]) {
+      reader.readAsDataURL(event.target.files[0])
     }
 
     reader.onload = (readerEvent) => {
