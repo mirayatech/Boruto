@@ -1,6 +1,7 @@
 /* eslint-disable react/no-children-prop */
 /* eslint-disable react/jsx-key */
 /* eslint-disable react/react-in-jsx-scope */
+import MarkdownPreview from '@uiw/react-markdown-preview'
 
 import { collection, CollectionReference, onSnapshot } from 'firebase/firestore'
 import { useEffect, useState } from 'react'
@@ -9,9 +10,6 @@ import { Link } from 'react-router-dom'
 import { firebaseDb, ArticleType, UserType } from '../../../lib/'
 import { Author } from '.'
 import { Icons } from './icons'
-import ReactMarkdown from 'react-markdown'
-import remarkGfm from 'remark-gfm'
-import rehypeRaw from 'rehype-raw'
 
 type CardProps = {
   article: ArticleType
@@ -56,12 +54,8 @@ export function Card({ article }: CardProps) {
       </Link>
       <br /> <br />
       <Link to={`/articles/${articleId}`}>
-        <ReactMarkdown
-          children={text.substr(0, 185) + '...'}
-          className="text-darkGrey"
-          remarkPlugins={[remarkGfm]}
-          rehypePlugins={[rehypeRaw]}
-        />
+        {' '}
+        <MarkdownPreview source={text.substr(0, 185) + '...'} />
       </Link>
       <div className="flex justify-between items-baseline mt-[30px]">
         {users &&

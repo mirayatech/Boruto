@@ -1,5 +1,7 @@
 /* eslint-disable react/no-children-prop */
 /* eslint-disable react/react-in-jsx-scope */
+import MarkdownPreview from '@uiw/react-markdown-preview'
+
 import {
   collection,
   CollectionReference,
@@ -14,9 +16,6 @@ import { useAuthContext } from '../../context'
 import { ArticleType, firebaseDb, ParamsType, UserType } from '../../lib'
 import { Author, LikeComment, Comments, CommentsContainer, Buttons } from '.'
 import DeleteArticle from '../../components/modal/DeleteArticle'
-import ReactMarkdown from 'react-markdown'
-import remarkGfm from 'remark-gfm'
-import rehypeRaw from 'rehype-raw'
 
 export default function Article() {
   const [users, setUsers] = useState<UserType[] | null>(null)
@@ -112,31 +111,7 @@ export default function Article() {
                     })}
                 </div>
 
-                <ReactMarkdown
-                  children={article.text}
-                  className="article-preview"
-                  remarkPlugins={[remarkGfm]}
-                  rehypePlugins={[rehypeRaw]}
-                  //   components={{
-                  //     code({ node, inline, className, children, ...props }) {
-                  //       const match = /language-(\w+)/.exec(className || '')
-                  //       return !inline && match ? (
-                  //         <SyntaxHighlighter
-                  //           // style={dracula}
-                  //           className="SyntaxHighlighter"
-                  //           children={String(children).replace(/\n$/, '')}
-                  //           language={match[1]}
-                  //           PreTag="div"
-                  //           {...props}
-                  //         />
-                  //       ) : (
-                  //         <code className={className} {...props}>
-                  //           {children}
-                  //         </code>
-                  //       )
-                  //     },
-                  //   }}
-                />
+                <MarkdownPreview source={article.text} />
               </div>
 
               <LikeComment articleId={id} />

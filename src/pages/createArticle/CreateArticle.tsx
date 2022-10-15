@@ -19,7 +19,7 @@ import { IoImageOutline } from 'react-icons/io5'
 
 import { useAuthContext } from '../../context/'
 import { firebaseDb, firebaseStorage, useLoadingStore } from '../../lib/'
-import { Preview } from './preview'
+import MarkdownEditor from '@uiw/react-markdown-editor'
 // import { Preview } from './preview/preview'
 
 export default function CreateArticle() {
@@ -197,21 +197,11 @@ export default function CreateArticle() {
           <label htmlFor="Article text" className="opacity-0 absolute">
             Article text
           </label>
-          <textarea
-            name="text"
-            id="Article text"
-            placeholder="Tell your story..."
-            onChange={(event) => setTextField(event.target.value)}
-            className="h-[250px] font-[400] text-darkGrey px-[30px] py-[15px] break-words leading-[2]  resize-none"
+          <MarkdownEditor
+            value={textField}
+            className="markdown"
+            onChange={(textField) => setTextField(textField)}
           />
-          <div className="p-[1px] border-t border-border"></div>
-          {textField === '' ? (
-            <div className="flex h-[250px] text-darkGrey m-auto   items-center  ">
-              Nothing to preview! 🌵
-            </div>
-          ) : (
-            <Preview textField={textField} />
-          )}
         </div>
       </div>
 
