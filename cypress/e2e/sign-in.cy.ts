@@ -2,11 +2,17 @@ const user = {
   email: 'annachan@gmail.com',
   password: 'demonslayer123',
 }
+
+// Remove cache before running test so that we don't end up being already signed in since we signed in, in the previous test.
+beforeEach(() => {
+  indexedDB.deleteDatabase('firebaseLocalStorageDb')
+})
+
 it('Should sign user in', () => {
   cy.visit('/')
 
   // Redirects to sign in page
-  cy.findByRole('button', { name: 'unauthenticated nav menu button' }).click()
+  cy.findByRole('button', { name: 'unauthenticated nav menu' }).click()
   cy.findByRole('link', { name: 'Sign in' }).click()
 
   // Users sign in
