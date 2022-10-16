@@ -14,8 +14,7 @@ Boruto allows developers to write articles, share them, and connect with each ot
 ### 🛠️ - Dependencies 
  
  `React` &nbsp; `TypeScript` &nbsp; `Zustand` &nbsp; `Tailwind` &nbsp; `Cypress` &nbsp; `E2E Testing` &nbsp; `Testing Library` &nbsp; `react-hot-toast` &nbsp; `Build tool: Vite` 
-
-<br> 
+ 
 <br> 
 
 ### 🔗 - Demo: https://boruto.vercel.app/ 
