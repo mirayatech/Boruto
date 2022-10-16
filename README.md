@@ -21,6 +21,8 @@ Boruto allows developers to write articles, share them, and connect with each ot
 ### 🔗 - Demo: https://boruto.vercel.app/ 
 
 
+https://user-images.githubusercontent.com/71933266/196024414-cd2809db-bdc1-4fb1-b0c8-631dde555995.mp4
+
 
 
 
