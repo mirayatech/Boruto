@@ -1,11 +1,11 @@
 ###  Boruto ⤵
-Markdown-compatible blog application. More coming soon...
+Boruto allows developers to write articles, share them, and connect with each other. It supports Markdown. To interact with the blog, the user must be authenticated. As soon as the user is authenticated, he or she can: create articles, like other articles, comment on other articles, follow other users, and much more 🤗
 
-### 🧠 - What I've learned so far...
+### 🧠 - What I've learned:
 
 - [Zustand](https://github.com/pmndrs/zustand)
 - Creating custom hooks
-- E2E Automated Testing
+- `E2E Automated Testing`
 - How to use [Testing Library](https://github.com/testing-library)
 - Cypress: what it is, how it works
 - How to add lazy loading to React router
@@ -18,7 +18,9 @@ Markdown-compatible blog application. More coming soon...
 <br> 
 <br> 
 
+### 🔗 - Demo: https://boruto.vercel.app/ 
 
 
-<img src='https://www.clipartmax.com/png/full/224-2244313_drawn-pen-writing-gif-transparent-thank-you-writing-gif.png' width='300px' />
+
+
 
