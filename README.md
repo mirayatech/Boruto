@@ -1,6 +1,8 @@
 ###  Boruto ⤵
 Boruto allows developers to write articles, share them, and connect with each other. It supports Markdown. To interact with the blog, the user must be authenticated. As soon as the user is authenticated, he or she can: create articles, like other articles, comment on other articles, follow other users, and much more 🤗
 
+**Note: This project was designed and developed by me.**
+
 ### 🧠 - What I've learned:
 
 - [Zustand](https://github.com/pmndrs/zustand)
