@@ -12,10 +12,12 @@ import { doc, DocumentReference, onSnapshot } from 'firebase/firestore'
 import { useEffect, useState } from 'react'
 import { useAuthContext } from '../../../context'
 import toast from 'react-hot-toast'
+import { Skeleton } from '@mui/material'
 
 export function Authenticated() {
   const [anchorElement, setAnchorElement] = useState<null | HTMLElement>(null)
   const [isUser, setIsUser] = useState<UserType | null>(null)
+  const [loading, setLoading] = useState(true)
   const { setStatus } = useLoadingStore()
   const { user } = useAuthContext()
   const navigate = useNavigate()
@@ -50,6 +52,7 @@ export function Authenticated() {
         if (docData) {
           setIsUser(docData)
         }
+        setLoading(false)
       }),
 
     [user?.uid]
@@ -66,7 +69,15 @@ export function Authenticated() {
             aria-label="authenticated nav menu"
             onClick={handleClick}
           >
-            <img src={isUser.avatarUrl} alt="" className="w-14 rounded-[50%]" />
+            {loading ? (
+              <Skeleton variant="circular" width={50} height={50} />
+            ) : (
+              <img
+                src={isUser.avatarUrl}
+                alt=""
+                className="w-14 rounded-[50%]"
+              />
+            )}
           </button>
           <Menu
             id="authenticated-nav-menu"
