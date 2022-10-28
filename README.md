@@ -39,6 +39,8 @@ Boruto allows developers to write articles, share them, and connect with each ot
 #
 ![5](https://user-images.githubusercontent.com/71933266/198397372-6ca84f7c-b540-432e-8f60-0bc699fc570c.png)
 #
+![1](https://user-images.githubusercontent.com/71933266/198505819-8e019c29-06d4-4897-81bd-2875f04f30ad.png)
+#
 ![6](https://user-images.githubusercontent.com/71933266/198397381-3739cf95-6735-4070-8d04-e22ac7a163e6.png)
 #
 ![8](https://user-images.githubusercontent.com/71933266/198397389-77324d22-bd54-4083-b6c1-7b94a92beeef.png)
