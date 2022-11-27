@@ -56,7 +56,7 @@ it('User should be able to interact with another user: like articles, and add co
   cy.findByLabelText('Read minute').type(article.min)
   cy.findByRole('button', { name: 'Add subtitle' }).click()
   cy.findByLabelText('Article subtitle').type(article.subtitle)
-  cy.findByLabelText('Article text').type(article.text)
+  cy.get('[data-cy="Article text"]').type(article.text)
   cy.findByRole('button', { name: 'Publish' }).click()
 
   // Toast message

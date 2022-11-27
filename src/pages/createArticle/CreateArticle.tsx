@@ -194,10 +194,8 @@ export default function CreateArticle() {
         <div className="p-[1px] border-t border-border"></div>
 
         <div className="flex flex-col">
-          <label htmlFor="Article text" className="opacity-0 absolute">
-            Article text
-          </label>
           <MarkdownEditor
+            data-cy="Article text"
             value={textField}
             className="markdown"
             onChange={(textField) => setTextField(textField)}
